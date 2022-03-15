@@ -22,7 +22,7 @@ test:
 
 production:
   <<: *default
-  database: hw4
+  database: hw4_production
   username: hw4
-  password: <%= ENV[""]
+  password: <%= ENV["HW4_DATABASE_PASSWORD"] %>
 
