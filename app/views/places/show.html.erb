@@ -12,11 +12,15 @@
   <% end %>
 </div>
 
-<div class="row">
+<div class="row mb-4">
     <% for post in @place.posts.where({user_id: @current_user.id}) %>
-      <div class="col-sm-3">
-        <h4><%= post.title %></h4>
-        <p><%= post.posted_on %></p>
+      <div class="col-md-3 col-sm-6">
+        <h4>
+          <%= post.title %>
+        </h4>
+        <p>
+          <%= post.posted_on %>
+        </p>
         <% if post.uploaded_image.attached? %>
           <img src="<%= url_for(post.uploaded_image) %>" class="img-fluid">
         <% else %>
