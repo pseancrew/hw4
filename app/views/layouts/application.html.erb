@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tacostagram Final</title>
+    <title>Travel Log</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,7 +12,7 @@
   <body>
     <p>
       <% if @current_user %>
-        Welcome <%= @current_user.username %>
+        Logged in as: <%= @current_user.username %>
         <%= button_to "Logout", "/sessions/logout", method: :delete %>
       <% else %>
         <a href="/sessions/new">Login</a> or
