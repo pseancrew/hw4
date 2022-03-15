@@ -1,20 +1,23 @@
-<h1><%= @place.name %></h1>
+<div class="row mb-2">
+  <div class="col-9">
+    <h1 class="display-6 mb-2"><%= @place.name %></h1>
+  </div>
+</div>
 
-<% if @current_user %>
-  <h2>My Posts</h2>
-  <% for post in @place.posts.where({user_id: @current_user.id}) %>
-    <h3><%= post.title %></h3>
-    <h4><%= post.posted_on %></h4>
-    <p><%= post.description %></p>
+<div class="row mb-2">
+  <% if @current_user %>
+      <p>
+        <a class="btn btn-success" href="/posts/new?place_id=<%= @place.id %>">New Post</a>
+      </p>
+    <div class="row">
+      <% for post in @place.posts.where({user_id: @current_user.id}) %>
+        <div class="col-3">
+          <h3><%= post.title %></h3>
+          <h4><%= post.posted_on %></h4>
+          <img class="img-fluid" src="<%= post.image %>">
+          <p><%= post.description %></p>
+        </div>
+      <% end %>
+    </div>
   <% end %>
-<% end %>
-
-<% if @current_user %>
-  <p>
-    <a href="/posts/new?place_id=<%= @place.id %>">New Post</a>
-  </p>
-<% end %>
-
-<p>
-  <a href="/places">Back to All Places</a>
-</p>
+</div>
